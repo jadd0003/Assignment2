@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+/*These are my variables*/
+/* The following variables are used to create equal spaced colums to organize data*/
 body {
   font-family: 'Droid Sans', sans-serif;
 }
@@ -17,6 +19,9 @@ MIXINS
   *zoom: 1;
 }
 
+/* clearfix to create a liner gradient*/
+/*this mixin has many common styling that I used for certain parts, mainly for the heading sizes and colors*/
+/*mixin to call when i want the common hover effect used on the site which is to turn to a pointer and turn text blue*/
 /************************************************************************************************************
 Function
 *************************************************************************************************************/
@@ -62,12 +67,14 @@ Classes
   color: #0093cc;
 }
 
+/*top left hand menu*/
 .menu {
   margin: 10px;
   width: 30%;
   float: left;
 }
 
+/*top right hand menu*/
 .menu2 {
   float: right;
   margin: 12px;
@@ -137,6 +144,7 @@ Classes
   *zoom: 1;
 }
 
+/*class used for all the colums*/
 .col {
   float: left;
   width: 100%;
@@ -162,6 +170,7 @@ Classes
   color: #0093cc;
 }
 
+/*This is the 2 column layout however this was not equal spacing so i altered the width from the numberr of colums which is 2 to 1.5 so it is larger*/
 .col-2 {
   border-right: solid 1px #d6d6d6;
 }
@@ -201,6 +210,7 @@ Classes
   padding: 8px 20px 0 0;
 }
 
+/*This is the 2 column layout however this was not equal spacing so i altered the width from the numberr of colums which is 2 to 4 so it is smaller*/
 .col-21 {
   height: 14em;
 }
@@ -244,6 +254,7 @@ Classes
   -webkit-padding-start: 0px;
 }
 
+/*This is the 1 column layout.*/
 .col-1 {
   height: 18em;
 }
@@ -258,6 +269,7 @@ Classes
   list-style-type: none;
 }
 
+/*This is the 3 column layout class, width is caluculated using the function above*/
 .col-3 {
   height: 23em;
 }
@@ -276,6 +288,7 @@ Classes
   font-size: 12px;
 }
 
+/*This is the 4 column layout class, width is caluculated using the function above*/
 @media (min-width: 63em) {
   .col-4 {
     width: 14.625em;
@@ -345,6 +358,7 @@ Classes
   color: #0093cc;
 }
 
+/*This is the 5 column layout class, width is caluculated using the function above*/
 .col-5 {
   height: 18em;
 }
