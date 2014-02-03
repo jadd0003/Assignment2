@@ -1,0 +1,415 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+/************************************************************************************************************
+MIXINS
+*************************************************************************************************************/
+body {
+  font-family: 'Droid Sans', sans-serif;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+
+.wrapper {
+  width: 1020px;
+  margin: 50px auto 0;
+}
+
+.inner-nav {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.navigation {
+  background: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 48px;
+  color: #646564;
+  border-bottom: 1px solid #d9d9d9;
+}
+.navigation ul {
+  list-style-type: none;
+}
+.navigation li {
+  padding: 10px 10px 10px 13px;
+  float: left;
+}
+.navigation a {
+  color: #aaa;
+  text-decoration: none;
+  text-transform: none;
+}
+.navigation a:hover {
+  color: #0093cc;
+}
+.navigation img {
+  margin: -8px;
+}
+
+.menu {
+  margin: 10px;
+  width: 25%;
+  float: left;
+}
+
+.menu2 {
+  float: right;
+  margin: 11px;
+}
+.menu2 li {
+  padding: 8px;
+  position: relative;
+}
+.menu2 li:before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  top: 17px;
+  left: -1px;
+}
+.menu2 .sign-in {
+  color: #0093cc;
+}
+
+.headings {
+  width: 100%;
+  color: white;
+}
+.headings h3 {
+  font-size: 14px;
+}
+.headings h3:hover {
+  color: #0093cc;
+  cursor: pointer;
+}
+.headings p {
+  font-size: 14px;
+}
+.headings a {
+  text-decoration: none;
+  color: white;
+}
+.headings a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.headings .left {
+  float: left;
+}
+.headings .right {
+  float: right;
+}
+
+/* Equal spaced columns with margin and first margin considerations */
+/* Dynamic Variables - Consistantly spaced equal columns grid */
+/* Return Calculated Width */
+.container {
+  margin: 0 auto;
+}
+@media (min-width: 63em) {
+  .container {
+    width: 63em;
+  }
+}
+
+.col-container:before, .col-container:after {
+  content: " ";
+  display: table;
+}
+.col-container:after {
+  clear: both;
+}
+.col-container {
+  *zoom: 1;
+}
+
+.col {
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1.5em 0 0 0;
+}
+@media (min-width: 63em) {
+  .col {
+    margin-left: 1.5em;
+  }
+}
+.col:first-child {
+  margin-left: 0;
+}
+.col img:hover {
+  cursor: pointer;
+}
+.col h1:hover {
+  color: #0093cc;
+  cursor: pointer;
+}
+.col a:hover {
+  color: #0093cc;
+}
+
+.col-2 {
+  border-right: solid 1px #d6d6d6;
+}
+@media (min-width: 63em) {
+  .col-2 {
+    width: 41.5em;
+  }
+}
+.col-2 ul {
+  list-style-type: none;
+  padding: 2px;
+  margin: 0;
+}
+.col-2 h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+.col-2 li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+.col-2 li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+.col-2 li {
+  padding-bottom: 15px;
+  overflow: auto;
+}
+.col-2 li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+.col-2 img {
+  float: left;
+}
+.col-2 li {
+  border-bottom: solid 1px #d6d6d6;
+  padding: 8px 20px 0 0;
+}
+
+.col-21 {
+  height: 14em;
+}
+.col-21 a {
+  text-decoration: none;
+  color: #646564;
+}
+.col-21 a:hover {
+  color: #0093cc;
+}
+@media (min-width: 63em) {
+  .col-21 {
+    width: 14.625em;
+  }
+}
+.col-21 li {
+  list-style-type: none;
+}
+.col-21 ul {
+  -webkit-padding-start: 0px;
+}
+.col-21 p {
+  font-size: 13px;
+  color: #646564;
+}
+.col-21 h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.col-21 h2 {
+  font-size: 12px;
+  color: #646564;
+}
+.col-21 h3 {
+  font-size: 14px;
+}
+.col-21 h1:hover {
+  color: #0093cc;
+}
+.col-21 h3:hover {
+  color: #0093cc;
+}
+
+.col-1 {
+  height: 18em;
+}
+@media (min-width: 63em) {
+  .col-1 {
+    width: 63em;
+  }
+}
+.col-1 li {
+  display: inline;
+  float: left;
+  list-style-type: none;
+}
+
+.col-3 {
+  height: 23em;
+}
+@media (min-width: 63em) {
+  .col-3 {
+    width: 20em;
+  }
+}
+.col-3 p {
+  font-size: 10px;
+}
+.col-3 h1 {
+  font-size: 16px;
+}
+.col-3 h2 {
+  font-size: 12px;
+}
+
+@media (min-width: 63em) {
+  .col-4 {
+    width: 14.625em;
+  }
+}
+
+.footer {
+  background: #d6d6d6;
+}
+
+.background {
+  background-color: #252d3a;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4e5d72), to(#252d3a));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #4e5d72, #252d3a);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, #4e5d72, #252d3a);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, #4e5d72, #252d3a);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, #4e5d72, #252d3a);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, #4e5d72, #252d3a);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#4e5d72', EndColorStr='#252d3a');
+  color: white;
+  width: 100%;
+}
+.background h3 {
+  font-size: 14px;
+}
+.background h3:hover {
+  color: #0093cc;
+  cursor: pointer;
+}
+.background p {
+  font-size: 14px;
+}
+.background a {
+  text-decoration: none;
+  color: white;
+}
+.background a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header p {
+  font-size: 13px;
+  color: #646564;
+}
+.header h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.header h2 {
+  font-size: 12px;
+  color: #646564;
+}
+.header h3 {
+  font-size: 14px;
+}
+.header h1:hover {
+  color: #0093cc;
+}
+.header h3:hover {
+  color: #0093cc;
+}
+
+.col-5 {
+  height: 18em;
+}
+@media (min-width: 63em) {
+  .col-5 {
+    width: 11.4em;
+  }
+}
+.col-5 p {
+  font-size: 10px;
+}
+.col-5 h1 {
+  font-size: 16px;
+}
+.col-5 h2 {
+  font-size: 12px;
+}
+
+.third-container p {
+  font-size: 13px;
+  color: #646564;
+}
+.third-container h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.third-container h2 {
+  font-size: 12px;
+  color: #646564;
+}
+.third-container h3 {
+  font-size: 14px;
+}
+.third-container h1:hover {
+  color: #0093cc;
+}
+.third-container h3:hover {
+  color: #0093cc;
+}
+
+.footer {
+  color: #646564;
+  h3: 14px;
+}
+.footer p {
+  font-size: 13px;
+}
+.footer .footerbox p {
+  padding: 15px;
+  background: #e3e3e3;
+}
+.footer .footerbox p:hover {
+  color: #0093cc;
+}
+.footer ul {
+  list-style-type: none;
+}
+
+.socialmedia img {
+  float: left;
+}
+.socialmedia p {
+  padding-top: 7px;
+}
+.socialmedia p:hover {
+  cursor: pointer;
+  color: #0093cc;
+}
+.socialmedia ul {
+  -webkit-padding-start: 0px;
+  text-align: left;
+}
