@@ -1,11 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
-/************************************************************************************************************
-MIXINS
-*************************************************************************************************************/
 body {
   font-family: 'Droid Sans', sans-serif;
 }
 
+/************************************************************************************************************
+MIXINS
+*************************************************************************************************************/
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table;
@@ -17,6 +17,13 @@ body {
   *zoom: 1;
 }
 
+/************************************************************************************************************
+Function
+*************************************************************************************************************/
+/* Return Calculated Width */
+/************************************************************************************************************
+Classes
+*************************************************************************************************************/
 .wrapper {
   width: 1020px;
   margin: 50px auto 0;
@@ -34,39 +41,39 @@ body {
   width: 100%;
   height: 48px;
   color: #646564;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d6d6d6;
+  color: #646564;
 }
 .navigation ul {
   list-style-type: none;
 }
 .navigation li {
-  padding: 10px 10px 10px 13px;
+  padding: 10px 10px 10px 14px;
   float: left;
 }
+.navigation img {
+  margin: -7px;
+}
 .navigation a {
-  color: #aaa;
+  color: #646564;
   text-decoration: none;
-  text-transform: none;
 }
 .navigation a:hover {
   color: #0093cc;
 }
-.navigation img {
-  margin: -8px;
-}
 
 .menu {
   margin: 10px;
-  width: 25%;
+  width: 30%;
   float: left;
 }
 
 .menu2 {
   float: right;
-  margin: 11px;
+  margin: 12px;
 }
 .menu2 li {
-  padding: 8px;
+  padding: 10px;
   position: relative;
 }
 .menu2 li:before {
@@ -74,7 +81,7 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  top: 17px;
+  top: 16px;
   left: -1px;
 }
 .menu2 .sign-in {
@@ -110,9 +117,6 @@ body {
   float: right;
 }
 
-/* Equal spaced columns with margin and first margin considerations */
-/* Dynamic Variables - Consistantly spaced equal columns grid */
-/* Return Calculated Width */
 .container {
   margin: 0 auto;
 }
@@ -174,16 +178,16 @@ body {
 .col-2 h3 {
   font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
 }
+.col-2 li {
+  padding-bottom: 15px;
+  overflow: auto;
+}
 .col-2 li img {
   float: left;
   margin: 0 15px 0 0;
 }
 .col-2 li p {
   font: 200 12px/1.5 Georgia, Times New Roman, serif;
-}
-.col-2 li {
-  padding-bottom: 15px;
-  overflow: auto;
 }
 .col-2 li:hover {
   background: #eee;
@@ -199,6 +203,27 @@ body {
 
 .col-21 {
   height: 14em;
+}
+.col-21 p {
+  font-size: 13px;
+  color: #646564;
+}
+.col-21 h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.col-21 h1:hover {
+  color: #0093cc;
+}
+.col-21 h2 {
+  font-size: 12px;
+  color: #646564;
+}
+.col-21 h3 {
+  font-size: 14px;
+}
+.col-21 h3:hover {
+  color: #0093cc;
 }
 .col-21 a {
   text-decoration: none;
@@ -217,27 +242,6 @@ body {
 }
 .col-21 ul {
   -webkit-padding-start: 0px;
-}
-.col-21 p {
-  font-size: 13px;
-  color: #646564;
-}
-.col-21 h1 {
-  font-size: 20px;
-  font-weight: 700;
-}
-.col-21 h2 {
-  font-size: 12px;
-  color: #646564;
-}
-.col-21 h3 {
-  font-size: 14px;
-}
-.col-21 h1:hover {
-  color: #0093cc;
-}
-.col-21 h3:hover {
-  color: #0093cc;
 }
 
 .col-1 {
@@ -327,15 +331,15 @@ body {
   font-size: 20px;
   font-weight: 700;
 }
+.header h1:hover {
+  color: #0093cc;
+}
 .header h2 {
   font-size: 12px;
   color: #646564;
 }
 .header h3 {
   font-size: 14px;
-}
-.header h1:hover {
-  color: #0093cc;
 }
 .header h3:hover {
   color: #0093cc;
@@ -367,15 +371,15 @@ body {
   font-size: 20px;
   font-weight: 700;
 }
+.third-container h1:hover {
+  color: #0093cc;
+}
 .third-container h2 {
   font-size: 12px;
   color: #646564;
 }
 .third-container h3 {
   font-size: 14px;
-}
-.third-container h1:hover {
-  color: #0093cc;
 }
 .third-container h3:hover {
   color: #0093cc;
@@ -412,4 +416,52 @@ body {
 .socialmedia ul {
   -webkit-padding-start: 0px;
   text-align: left;
+}
+
+.navigation2 {
+  background: #d6d6d6;
+  bottom: 0;
+  width: 100%;
+  height: 48px;
+  color: #646564;
+  border-top: 1px solid #aaa;
+  color: #646564;
+  font-size: 12px;
+}
+.navigation2 ul {
+  list-style-type: none;
+}
+.navigation2 li {
+  padding: 10px 10px 0px 14px;
+  float: left;
+}
+.navigation2 a {
+  color: #646564;
+  text-decoration: none;
+}
+.navigation2 a:hover {
+  color: #0093cc;
+}
+
+.menu3 {
+  margin: 10px;
+  width: 60%;
+  float: left;
+}
+
+.menu4 {
+  float: right;
+  margin: 12px;
+}
+.menu4 li {
+  padding: 5px 5px 0 5px;
+  position: relative;
+}
+.menu4 li:before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  top: 16px;
+  left: -1px;
 }

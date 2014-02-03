@@ -5,26 +5,21 @@ $textcolor:#646564;
 $h2:12px;
 $h3:14px;
 $bordergrey:#d6d6d6;
-@mixin linear-gradient($fromColor, $toColor) {
-  background-color: $toColor; /* Fallback Color */
-  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
-  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
-  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
-  background-image:         linear-gradient(top, $fromColor, $toColor);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
-}
-
 $hovercolor:#0093cc;
+$medium-width : 63em;
+$common-margin : 1.5em;
+$box-height : 23em;
 
-/************************************************************************************************************
-MIXINS
-*************************************************************************************************************/
+
 body{
 font-family: 'Droid Sans', sans-serif;
 }
 
+
+
+/************************************************************************************************************
+MIXINS
+*************************************************************************************************************/
 @mixin clearfix {
      // For modern browsers
       &:before,
@@ -45,131 +40,100 @@ font-family: 'Droid Sans', sans-serif;
 .clearfix{
 	@include clearfix;
 }
+
+
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+@mixin style{
+
+	p{font-size:13px; color:$textcolor;}
+	
+	h1{font-size:20px; font-weight:700;}
+		h1:hover{color:$hovercolor;}
+		
+	h2{font-size:$h2; color:$textcolor;}
+	
+	h3{font-size:$h3;}
+		h3:hover{color:$hovercolor;}
+}
+
+
+@mixin style2{
+
+	 ul {list-style-type: none; padding:2px; margin:0; }
+	 
+	 h3 {font: bold 20px/1.5 Helvetica, Verdana, sans-serif;}
+	 
+	 li { padding-bottom: 15px; overflow:auto; }
+		 li img {float: left; margin: 0 15px 0 0;}
+		 li p {font: 200 12px/1.5 Georgia, Times New Roman, serif;}
+		 li:hover {background: #eee;cursor: pointer;}
+}
+
+@mixin style3{
+
+	color:white;
+	
+	h3{font-size:$h3;}
+		h3:hover{color:$hovercolor; cursor:pointer;}
+		
+	p{font-size:$h3;}
+	
+	a{text-decoration:none;color:white;}
+		a:hover{cursor:pointer;text-decoration:underline;}
+}
+	
+@mixin hovereffect{
+	img:hover{cursor:pointer;}
+	
+	h1:hover{color:#0093cc;cursor:pointer;}
+	
+	a:hover{color:#0093cc;}
+}
+
+@mixin border-bottom{
+	border-bottom:solid 1px $bordergrey; padding:8px 20px 0 0;
+}
+
+
+@mixin border-right{
+	border-right:solid 1px $bordergrey;
+}
+
+/************************************************************************************************************
+Function
+*************************************************************************************************************/
+
+/* Return Calculated Width */
+@function calculated-width($containerWidth, $number-of-cols : 0 ){ 
+   @return ($containerWidth - (($number-of-cols - 1) * $common-margin)) / $number-of-cols;
+}
+
+/************************************************************************************************************
+Classes
+*************************************************************************************************************/
+
+
 .wrapper{
 	width:1020px;
 	margin:50px auto 0;
 }
-
-@mixin border-bottom{
-	border-bottom:solid 1px $bordergrey;
-	padding:8px 20px 0 0;
-}
-
-@mixin border-right{
-	border-right:solid 1px $bordergrey;
-
-}
-@mixin style{
-p{
-	font-size:13px;
-	color:$textcolor;
-	}
-	h1{
-	font-size:20px;
-	font-weight:700;
-	}
-	h2{
-	font-size:$h2;
-	color:$textcolor;
-	}
-	h3{
-	font-size:$h3;
-	}
-	h1:hover{
-	color:$hovercolor;
-	}
-	h3:hover{
-	color:$hovercolor;
-	}
-
-	}
-
-
-@mixin width($width){
-  width:($width);
-}
-
-@mixin style2{
- ul {
-  list-style-type: none;
-  padding:2px;
-  margin:0;
-  
-}
-h3 {
-  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
-}
- 
-li img {
-  float: left;
-  margin: 0 15px 0 0;
-}
- 
-li p {
-  font: 200 12px/1.5 Georgia, Times New Roman, serif;
-}
- 
-li {
-  padding-bottom: 15px;
-  overflow:auto;
-  
-}
- 
-li:hover {
-  background: #eee;
-  cursor: pointer;
-}
-}
-
-
-
-@mixin style3{
-	color:white;
-	
-	h3{
-	font-size:$h3;
-	}
-	h3:hover{
-	color:$hovercolor;
-	cursor:pointer;
-	}
-	p{
-	font-size:14px;
-	}
-	a{
-	text-decoration:none;
-	color:white;
-	}
-	a:hover{
-	cursor:pointer;
-	text-decoration:underline;
-	}
-	}
-	
-
-
- 
-
-@mixin hovereffect{
-	img:hover{
-	cursor:pointer;
-	}
-	h1:hover{
-	color:#0093cc;
-	cursor:pointer;
-	}
-	a:hover{
-	color:#0093cc;
-	}
-	
-	}
-
 
 
 .inner-nav{
 	width:1280px;
 	margin:0 auto;
 }
+
 .navigation{
 	background:white;
 	position:fixed;
@@ -177,45 +141,44 @@ li:hover {
 	width:100%;
 	height:48px;
 	color:$textcolor;
-	border-bottom:1px solid #d9d9d9;
+	border-bottom:1px solid $bordergrey;
+	color:$textcolor;
 	
 	ul{
-	list-style-type:none;
+		list-style-type:none;
 	}
 
 	li{
-		padding:10px 10px 10px 13px;
+		padding:10px 10px 10px 14px;
 		float:left;
 	}
-
+	
+	img{
+		margin:-7px;
+	}
+	
 	a{
-		color:#aaa;
+		color:$textcolor;
 		text-decoration: none;
-		text-transform:none;
 	}
 
 	a:hover{
 		color:$hovercolor;
 	}
-
-	img{
-		margin:-8px;
-	}
 }
 
 .menu{
 	margin:10px;
-	width:25%;;
+	width:30%;;
 	float:left;
-	
 }
 
 
 .menu2{
 	float:right;
-	margin:11px;
+	margin:12px;
 	li{
-		padding:8px;
+		padding:10px;
 		position:relative;
 	}
 
@@ -224,13 +187,10 @@ li:hover {
 		position:absolute;
 		width:2px;
 		height:2px;
-		top:17px;
+		top:16px;
 		left:-1px;
 		
 	}
-
-	
-
 	.sign-in{
 		color:$hovercolor;
 	}
@@ -238,152 +198,123 @@ li:hover {
 
 
 .headings{
-width:100%;
-@include style3;
+	width:100%;
+	@include style3;
 	
 	.left{
-	float:left;
+		float:left;
 	}
 	.right{
-	float:right;
-	
+		float:right;
 	}
-	}
-
-
-/* Equal spaced columns with margin and first margin considerations */
-/* Dynamic Variables - Consistantly spaced equal columns grid */
-$medium-width : 63em;
-$common-margin : 1.5em;
-$box-height : 23em;
- 
-/* Return Calculated Width */
-@function calculated-width($containerWidth, $number-of-cols : 0 ){ 
-   @return ($containerWidth - (($number-of-cols - 1) * $common-margin)) / $number-of-cols;
 }
 
 
+
 .container {
-  margin: 0 auto;
-  @media(min-width: $medium-width){
-     width: $medium-width; 
+	margin: 0 auto;
+	@media(min-width: $medium-width){
+     	width: $medium-width; 
   }
 }
 
 .col-container { 
-  @include clearfix; 
+	@include clearfix; 
 }
 
 .col{
-  float:left; 
-  width:100%;
-  box-sizing:border-box;
-  margin: $common-margin 0 0 0;
+	float:left; 
+	width:100%;
+	box-sizing:border-box;
+	margin: $common-margin 0 0 0;
 
-  @media (min-width: $medium-width){
-    margin-left: $common-margin;
-  }
+	@media (min-width: $medium-width){
+   	 	margin-left: $common-margin;
+	}
   
-  &:first-child { margin-left:0;}
+	&:first-child { margin-left:0;}
   
-  @include hovereffect;
+	@include hovereffect;
 }
 
-
-
-
 .col-2{
-  $number-of-cols : 2;
-  
-  @media (min-width: $medium-width){
-    width: calculated-width($medium-width, 1.5);
+	$number-of-cols : 2;
+	@media (min-width: $medium-width){
+		width: calculated-width($medium-width, 1.5);
+	}
+	@include style2;
+	@include border-right;
+	img{
+  		float:left;
+	}
+	li{
+  		@include border-bottom;
   }
-  @include style2;
-  img{
-  float:left;
-  }
-  li{
-  @include border-bottom;
-  }
-  @include border-right;
- 
 }
 
 .col-21{
-  $number-of-cols : 2;
-  height:14em;
- 
+	$number-of-cols : 2;
+	height:14em;
+	@include style;
   
-  a{
-  text-decoration:none;
-  color:$textcolor;
-  }
-  a:hover{
-  color:$hovercolor;
-  }
-  @media (min-width: $medium-width){
-    width: calculated-width($medium-width, 4);
-  }
-  li{
-  list-style-type: none;
-  }
+	a{
+  		text-decoration:none;
+  		color:$textcolor;
+	}
+  	a:hover{
+  		color:$hovercolor;
+	}
+	@media (min-width: $medium-width){
+    	width: calculated-width($medium-width, 4);
+	}
+	li{
+ 	 	list-style-type: none;
+	}
   
-  ul{
-	-webkit-padding-start: 0px;
-		}
-	
-	
-  @include style;
-  
-  
- 
+	ul{
+		-webkit-padding-start: 0px;
+	}
 }
 
 .col-1{
 	height:18em;
-  $number-of-cols : 1;
+	$number-of-cols : 1;
   
-  @media (min-width: $medium-width){
+	@media (min-width: $medium-width){
     width: calculated-width($medium-width, $number-of-cols);
-  }
-  li{
-	display:inline;
-	float:left;
-	list-style-type:none;
-	
 	}
- 
+	li{
+		display:inline;
+		float:left;
+		list-style-type:none;
+	}
 }
 
 .col-3{
-  $number-of-cols : 3;
-  height:23em;
-  
-  @media (min-width: $medium-width){
+	$number-of-cols : 3;
+	height:23em;
+	@media (min-width: $medium-width){
     width: calculated-width($medium-width, $number-of-cols);
-  }
-  
-  p{
+ 	}
+	p{
   	font-size:10px;
-	}
+   }
 	
-  h1{
-  	font-size:16px;
+	h1{
+  		font-size:16px;
   }
   
-  h2{
-  font-size:$h2;
-  
+	h2{
+  		font-size:$h2;
   }
 }
 
 .col-4{
-  $number-of-cols : 4;
-  
-  @media (min-width: $medium-width){
+	$number-of-cols : 4;
+	@media (min-width: $medium-width){
     width: calculated-width($medium-width, $number-of-cols);
   }
-  }
+}
   
 .footer{
 background:$bordergrey;
@@ -393,88 +324,129 @@ background:$bordergrey;
 	@include linear-gradient(#4e5d72, #252d3a);
 	@include style3;
 	width:100%;
-	}
+}
 	
 .header{
 	@include style;
+}
+	
+.col-5{
+	$number-of-cols : 5;
+	height:18em;
+	@media (min-width: $medium-width){
+	width: calculated-width($medium-width, $number-of-cols);
 	}
-	
-	
-	
-	.col-5{
-  $number-of-cols : 5;
-  height:18em;
-  
-  @media (min-width: $medium-width){
-    width: calculated-width($medium-width, $number-of-cols);
-  }
-  
-  p{
-  	font-size:10px;
+	p{
+  		font-size:10px;
 	}
-	
-  h1{
-  	font-size:16px;
-  }
-  
-  h2{
-  font-size:$h2;
-  
-  }
+	h1{
+  		font-size:16px;
+	}
+	h2{
+	font-size:$h2;
+	}
 }
 
 .third-container{
-  @include style;
-  }
-  
-
+    @include style;
+}
   
 @mixin footerstuff{
+	color:$textcolor;
+	h3:$h3;
 
-color:$textcolor;
-h3:$h3;
-
-p{
-font-size:13px;
-}
-
-.footerbox{
 	p{
-	padding:15px;
-	background:#e3e3e3;
+	  font-size:13px;
 	}
-	p:hover{
-	color:$hovercolor;
+
+	.footerbox{
+		p{
+		  padding:15px;
+	      background:#e3e3e3;
+		  }
+		p:hover{
+		  color:$hovercolor;
+		  }
 	}
-	}
-	
 	ul {
-  list-style-type: none;
-  }
-	
-	}
+  		list-style-type: none;
+    }
+}
 	
 .footer{
-	
- @include footerstuff;
- }
+	@include footerstuff;
+}
  
 .socialmedia{
-	
 	img{
-  	float:left;
+  		float:left;
   	}
   	p{
-  	padding-top:7px;
+  		padding-top:7px;
   	}
-  
   	p:hover{
-	cursor:pointer;
-  	color:$hovercolor;
+		cursor:pointer;
+  		color:$hovercolor;
 	}
 	ul{
+		-webkit-padding-start: 0px;
+		text-align:left;
+	}
+}
+
+
+.navigation2{
+	background:$bordergrey;
+	bottom:0;
+	width:100%;
+	height:48px;
+	color:$textcolor;
+	border-top:1px solid #aaa;
+	color:$textcolor;
+	font-size:12px;
 	
-	-webkit-padding-start: 0px;
-	text-align:left;
+	ul{
+		list-style-type:none;
 	}
+
+	li{
+		padding:10px 10px 0px 14px;
+		float:left;
 	}
+	
+	a{
+		color:$textcolor;
+		text-decoration: none;
+	}
+
+	a:hover{
+		color:$hovercolor;
+	}
+}
+
+.menu3{
+	margin:10px;
+	width:60%;;
+	float:left;
+}
+
+
+.menu4{
+	float:right;
+	margin:12px;
+	li{
+		padding:5px 5px 0 5px;
+		position:relative;
+	}
+
+	li:before{
+		content:"";
+		position:absolute;
+		width:2px;
+		height:2px;
+		top:16px;
+		left:-1px;
+		
+	}
+	
+}
